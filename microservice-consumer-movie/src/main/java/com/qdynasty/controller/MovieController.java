@@ -3,6 +3,8 @@
  */
 package com.qdynasty.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,9 @@ public class MovieController {
 	
 	@Value("${user.userServiceUrl}")
 	private String userServiceUrl;
+	
+	@Autowired
+	private DiscoveryClient discoveryClient;
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -30,5 +35,11 @@ public class MovieController {
 		System.out.println("user.userServiceUrl=" + userServiceUrl);
 		
 		return restTemplate.getForObject(userServiceUrl + id, User.class);
+	}
+	
+	@GetMapping("/user-instance")
+	public List<ServiceInstance> showMetaDataInfo() {
+		
+		return this.discoveryClient.getInstances("microservice-provider-user");
 	}
 }
