@@ -29,11 +29,11 @@ public class MovieController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 	
 	/**
-	 * #·şÎñµÄĞéÄâÖ÷»úÃû,Ribbon»á½«ĞéÄâÖ÷»úÃû×ª»»ÎªÎ¢·şÎñµÄÍøÂçµØÖ·
-	 * 1. Ä¬ÈÏÇé¿öÏÂ£ºĞéÄâÖ÷»úÃûºÍ·şÎñÃû³ÆÊÇÒ»ÖÂµÄ¡£
-	 * 2. ĞéÄâÖ÷»úÃû²»ÄÜ°üº¬'-'×Ö·û£¬·ñÔò»áµ¼ÖÂRibbonÔÚµ÷ÓÃÊÇ³öÒì³££»
-	 * 3. Èç¹û·şÎñÃû³ÆÖĞ°üº¬ÁË'-'×Ö·û£¬¿ÉÊ¹ÓÃeureka.instance.virtual-host-name
-	 * »òeureka.instance.secure-virtual-nameÖ¸¶¨ĞéÄâÖ÷»úÃû
+	 * #æœåŠ¡çš„è™šæ‹Ÿä¸»æœºå,Ribbonä¼šå°†è™šæ‹Ÿä¸»æœºåè½¬æ¢ä¸ºå¾®æœåŠ¡çš„ç½‘ç»œåœ°å€
+	 * 1. é»˜è®¤æƒ…å†µä¸‹ï¼šè™šæ‹Ÿä¸»æœºåå’ŒæœåŠ¡åç§°æ˜¯ä¸€è‡´çš„ã€‚
+	 * 2. è™šæ‹Ÿä¸»æœºåä¸èƒ½åŒ…å«'-'å­—ç¬¦ï¼Œå¦åˆ™ä¼šå¯¼è‡´Ribbonåœ¨è°ƒç”¨æ˜¯å‡ºå¼‚å¸¸ï¼›
+	 * 3. å¦‚æœæœåŠ¡åç§°ä¸­åŒ…å«äº†'-'å­—ç¬¦ï¼Œå¯ä½¿ç”¨eureka.instance.virtual-host-name
+	 * æˆ–eureka.instance.secure-virtual-nameæŒ‡å®šè™šæ‹Ÿä¸»æœºå
 	 */
 	@Value("${user.userServiceUrl}")
 	private String userServiceUrl;
@@ -53,7 +53,7 @@ public class MovieController {
 	}
 	
 	/**
-	 * ¸ºÔØ¾ùºâÑ¡ÔñµÄ·şÎñ:microservice-provider-userÆäÖĞÒ»¸öÊµÀıĞÅÏ¢
+	 * è´Ÿè½½å‡è¡¡é€‰æ‹©çš„æœåŠ¡:microservice-provider-userå…¶ä¸­ä¸€ä¸ªå®ä¾‹ä¿¡æ¯
 	 * @return
 	 */
 	@GetMapping("log-instance")
@@ -66,7 +66,7 @@ public class MovieController {
 	}
 	
 	/**
-	 * Î¢·şÎñ£ºmicroservice-provider-user µÄËùÓĞÊµÀıÁĞ±íĞÅÏ¢
+	 * å¾®æœåŠ¡ï¼šmicroservice-provider-user çš„æ‰€æœ‰å®ä¾‹åˆ—è¡¨ä¿¡æ¯
 	 * @return
 	 */
 	@GetMapping("/user-instance")
