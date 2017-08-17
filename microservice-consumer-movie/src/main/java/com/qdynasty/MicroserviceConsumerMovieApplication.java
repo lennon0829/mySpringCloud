@@ -2,6 +2,7 @@ package com.qdynasty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -17,6 +18,8 @@ public class MicroserviceConsumerMovieApplication {
 
 	private RestTemplate restTemplate;
 
+	// 整合Ribbon能力
+	@LoadBalanced
 	@Bean
 	public RestTemplate restTemplate() {
 		restTemplate = new RestTemplate();
