@@ -30,6 +30,10 @@ public class MovieController {
 	
 	/**
 	 * #服务的虚拟主机名,Ribbon会将虚拟主机名转换为微服务的网络地址
+	 * 1. 默认情况下：虚拟主机名和服务名称是一致的。
+	 * 2. 虚拟主机名不能包含'-'字符，否则会导致Ribbon在调用是出异常；
+	 * 3. 如果服务名称中包含了'-'字符，可使用eureka.instance.virtual-host-name
+	 * 或eureka.instance.secure-virtual-name指定虚拟主机名
 	 */
 	@Value("${user.userServiceUrl}")
 	private String userServiceUrl;
