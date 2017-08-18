@@ -22,10 +22,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 
 /**
- * 开启Spring Security 全局方法安全. prePostEnabled :决定Spring Security的前注解是否可用
- * [@PreAuthorize,@PostAuthorize,..] secureEnabled : 决定是否Spring Security的保障注解
- * [@Secured] 是否可用 jsr250Enabled ：决定 JSR-250 annotations 注解[@RolesAllowed..]
- * 是否可用.
+ * 开启Spring Security 全局方法安全. 
+ * prePostEnabled :决定Spring Security的前注解[@PreAuthorize,@PostAuthorize,..]是否可用  
+ * secureEnabled : 决定是否Spring Security的保障注解  [@Secured] 是否可用 
+ * jsr250Enabled ：决定 JSR-250 annotations 注解[@RolesAllowed..]是否可用.
  */
 @EnableGlobalMethodSecurity(prePostEnabled = false)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
