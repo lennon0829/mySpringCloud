@@ -5,6 +5,7 @@ package com.qdynasty.feign;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import com.qdynasty.entity.User;
 
@@ -14,6 +15,7 @@ import feign.hystrix.FallbackFactory;
  * @author fei.qin
  *
  */
+@Component
 public class FeignClientFallbackFactory implements FallbackFactory<UserFeignClient> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FeignClientFallbackFactory.class);

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.qdynasty.entity.User;
 
 /**
+ * fallbackFactory: feign与hystrix整合，也可以使用fallback，但是不能获取fallback原因。
+ * 但是fallbackFactory的灵活性在于可以根据fallback的原因，返回不同的内容。
  * @author fei.qin
  *
  */
