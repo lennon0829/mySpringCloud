@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.3.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -30,7 +30,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-bundle</artifactId>
@@ -62,10 +62,21 @@
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.13</version>
+				<!-- 设置为项目构建时，自动生成按照docker方式构建 -->
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<imageName>qdynasty/microservice-discovery-eureka:0.0.1</imageName>
-					<baseImage>java</baseImage>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<imageName>348221552/microservice-discovery-eureka:0.0.1</imageName>
+					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+					<!--  <baseImage>java</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -73,6 +84,8 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<!-- 与maven配置文件settings.xml中配置的server.id一致，用于推送镜像 -->
+					<serverId>docker-hub</serverId>
 				</configuration>
 			</plugin>
 		</plugins>
