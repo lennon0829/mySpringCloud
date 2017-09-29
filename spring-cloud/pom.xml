@@ -17,6 +17,7 @@
 		<module>eurekaRegistry</module>
 		<module>zuulGateway</module>
 		<module>rtmService</module>
+		<module>hdServer</module>
 	</modules>
 
 	<properties>
