@@ -9,6 +9,8 @@ package com.qdynasty.rtmService.model;
  */
 public class Conference {
 
+	private String id;
+	
 	private String billingCode;
 
 	private String name;
@@ -22,6 +24,14 @@ public class Conference {
 	private String beginTime;
 
 	private String endTime;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getBillingCode() {
 		return billingCode;

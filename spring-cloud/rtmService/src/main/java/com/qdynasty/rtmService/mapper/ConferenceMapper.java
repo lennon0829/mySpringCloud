@@ -23,13 +23,19 @@ import com.qdynasty.rtmService.model.QueryPage;
 @Repository("conferenceMapper")
 public interface ConferenceMapper {
 
-	@Select("select billingcode, name, hostCode, guestCode, bridgeName, beginTime, endTime from confs limit #{queryPage.start}, #{queryPage.limit}")
-	@Results({ @Result(property = "billingCode", column = "billingcode"),
-			@Result(property = "name", column = "billingcode"), 
-			@Result(property = "hostCode", column = "hostCode"),
+	@Select("select id, billingcode, name, hostCode, guestCode, bridgeName, BeginTime, EndTime from confs limit #{queryPage.start}, #{queryPage.limit}")
+	@Results({ @Result(property = "id", column = "id"), @Result(property = "billingCode", column = "billingcode"),
+			@Result(property = "name", column = "billingcode"), @Result(property = "hostCode", column = "hostCode"),
 			@Result(property = "guestCode", column = "guestCode"),
 			@Result(property = "bridgeName", column = "bridgeName"),
-			@Result(property = "beginTime", column = "beginTime"), 
-			@Result(property = "endTime", column = "endTime") })
+			@Result(property = "beginTime", column = "beginTime"), @Result(property = "endTime", column = "EndTime") })
 	List<Conference> queryConferenceByPage(@Param("queryPage") QueryPage queryPage);
+
+	@Select("select id, billingcode, name, hostCode, guestCode, bridgeName, beginTime, EndTime from confs where billingcode = #{billingCode}")
+	@Results({ @Result(property = "id", column = "id"), @Result(property = "billingCode", column = "billingcode"),
+			@Result(property = "name", column = "billingcode"), @Result(property = "hostCode", column = "hostCode"),
+			@Result(property = "guestCode", column = "guestCode"),
+			@Result(property = "bridgeName", column = "bridgeName"),
+			@Result(property = "beginTime", column = "beginTime"), @Result(property = "endTime", column = "EndTime") })
+	Conference queryConferenceByBillingCode(@Param("billingCode") String billingCode);
 }

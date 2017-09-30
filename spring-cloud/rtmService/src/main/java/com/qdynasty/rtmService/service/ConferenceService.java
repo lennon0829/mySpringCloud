@@ -15,4 +15,6 @@ import com.qdynasty.rtmService.model.QueryPage;
 public interface ConferenceService {
 
 	List<Conference> loadConferenceByPage(QueryPage queryPage);
+	
+	Conference loadConferenceByBillingCode(String billingCode);
 }

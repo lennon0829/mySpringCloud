@@ -18,6 +18,7 @@
 		<module>zuulGateway</module>
 		<module>rtmService</module>
 		<module>hdServer</module>
+		<module>monitorCenter</module>
 	</modules>
 
 	<properties>
@@ -26,7 +27,7 @@
 		<docker.plugin.version>0.4.13</docker.plugin.version>
 		<docker.image.prefix>348221552</docker.image.prefix>
 		<spring.cloud.version>Dalston.SR3</spring.cloud.version>
-		<spring-boot-admin.version>1.7.5</spring-boot-admin.version>
+		<spring-boot-admin.version>1.5.4</spring-boot-admin.version>
 	</properties>
 
 	<dependencies>
@@ -38,6 +39,39 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
+		</dependency>
+
+		<!--时间解析 -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -79,6 +113,11 @@
 				<version>${spring-boot-admin.version}</version>
 			</dependency>
 			<dependency>
+			  <groupId>de.codecentric</groupId>
+			  <artifactId>spring-boot-admin-server-ui-activiti</artifactId>
+			  <version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring.cloud.version}</version>
@@ -118,11 +157,8 @@
 					<configuration>
 						<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 						<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-						<!-- 
-						<serverId>docker-hub</serverId>
-						<registryUrl>http://10.20.0.215</registryUrl>
-						<exposes>8080</exposes>
-						 -->
+						<!-- <serverId>docker-hub</serverId> <registryUrl>http://10.20.0.215</registryUrl> 
+							<exposes>8080</exposes> -->
 						<resources>
 							<resource>
 								<targetPath>/</targetPath>

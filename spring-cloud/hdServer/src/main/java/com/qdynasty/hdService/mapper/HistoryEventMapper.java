@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import com.qdynasty.hdService.model.HistoryEvent;
 import com.qdynasty.hdService.model.QueryPage;
 
-
 /**
  * @author qinfei
  *
@@ -24,7 +23,11 @@ import com.qdynasty.hdService.model.QueryPage;
 @Repository("historyEventMapper")
 public interface HistoryEventMapper {
 
-	@Select("select billingcode from confs limit #{queryPage.start}, #{queryPage.limit}")
-	@Results({ @Result(property = "billingCode", column = "billingcode")})
-	List<HistoryEvent> queryConferenceByPage(@Param("queryPage") QueryPage queryPage);
+	@Select("select conference_id, event_time, phone, bridge_partyname, connectstate from ${table} where conference_id = #{conferenceId} limit #{queryPage.start}, #{queryPage.limit}")
+//	@Options(statementType = StatementType.STATEMENT)
+	@Results({ @Result(property = "conferenceId", column = "conference_id"),
+			@Result(property = "eventTime", column = "event_time"), @Result(property = "phone", column = "phone"),
+			@Result(property = "partyName", column = "bridge_partyname"),
+			@Result(property = "connectstate", column = "connectstate") })
+	List<HistoryEvent> queryConferenceByPage(@Param("table") String table, @Param("conferenceId") String conferenceId, @Param("queryPage") QueryPage queryPage);
 }

@@ -14,5 +14,5 @@ import com.qdynasty.hdService.model.QueryPage;
  */
 public interface HistoryEventService {
 
-	List<HistoryEvent> loadHistoryEventByPage(QueryPage queryPage);
+	List<HistoryEvent> loadHistoryEventByPage(QueryPage queryPage, String billingCode);
 }
