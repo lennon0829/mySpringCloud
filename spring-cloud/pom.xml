@@ -118,6 +118,11 @@
 					<configuration>
 						<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 						<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+						<!-- 
+						<serverId>docker-hub</serverId>
+						<registryUrl>http://10.20.0.215</registryUrl>
+						<exposes>8080</exposes>
+						 -->
 						<resources>
 							<resource>
 								<targetPath>/</targetPath>
