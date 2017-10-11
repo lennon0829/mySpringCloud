@@ -36,3 +36,11 @@ feign:
       mime-types: text/html,application/xml,application/json
     response:
       enable: true 
+security:
+  user:
+    name: admin
+    password: ${MONITOR_SERVER_PASSWORD:admin}
+    
+management:
+  security:
+    enabled: false
