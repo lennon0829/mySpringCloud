@@ -31,7 +31,7 @@ public interface ConferenceMapper {
 			@Result(property = "beginTime", column = "beginTime"), @Result(property = "endTime", column = "EndTime") })
 	List<Conference> queryConferenceByPage(@Param("queryPage") QueryPage queryPage);
 
-	@Select("select id, billingcode, name, hostCode, guestCode, bridgeName, beginTime, EndTime from confs where billingcode = #{billingCode}")
+	@Select("select id, billingcode, name, hostCode, guestCode, bridgeName, beginTime, EndTime from confs where billingcode = #{billingCode} order by begintime desc limit 1")
 	@Results({ @Result(property = "id", column = "id"), @Result(property = "billingCode", column = "billingcode"),
 			@Result(property = "name", column = "billingcode"), @Result(property = "hostCode", column = "hostCode"),
 			@Result(property = "guestCode", column = "guestCode"),

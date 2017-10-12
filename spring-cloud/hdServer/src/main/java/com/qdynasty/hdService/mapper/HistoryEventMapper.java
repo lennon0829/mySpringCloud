@@ -24,9 +24,9 @@ import com.qdynasty.hdService.model.QueryPage;
 public interface HistoryEventMapper {
 
 	@Select("select conference_id, event_time, phone, bridge_partyname, connectstate from ${table} where conference_id = #{conferenceId} limit #{queryPage.start}, #{queryPage.limit}")
-//	@Options(statementType = StatementType.STATEMENT)
 	@Results({ @Result(property = "conferenceId", column = "conference_id"),
-			@Result(property = "eventTime", column = "event_time"), @Result(property = "phone", column = "phone"),
+			@Result(property = "eventTime", column = "event_time"), 
+			@Result(property = "phone", column = "phone"),
 			@Result(property = "partyName", column = "bridge_partyname"),
 			@Result(property = "connectstate", column = "connectstate") })
 	List<HistoryEvent> queryConferenceByPage(@Param("table") String table, @Param("conferenceId") String conferenceId, @Param("queryPage") QueryPage queryPage);

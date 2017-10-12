@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.qdynasty.hdService.microservice.client.fallback.RtmServiceFallBack;
+import com.qdynasty.hdService.model.Conference;
 
 /**
  * @author fei.qin
@@ -23,5 +24,5 @@ public interface RtmServerClient {
 	 * 	 如果通过方法传递参数，则必须要用@RequestParam 修改该参数，示例：@RequestParam("billingCode") String billingCode
 	 */
 	@RequestMapping(value = "/conference/loadConferenceByBillingCode", method = RequestMethod.GET)	
-	public String loadConferenceByBillingCode(@RequestParam("billingCode") String billingCode);
+	public Conference loadConferenceByBillingCode(@RequestParam("billingCode") String billingCode);
 }
