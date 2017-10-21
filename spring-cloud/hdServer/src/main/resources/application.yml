@@ -14,6 +14,17 @@ spring:
     port: 5672
     username: admin
     password: admin
+  cloud:
+    config:
+      uri: http://config:8750
+      fail-fast: true
+      username: user
+      password: ${CONFIG_SERVER_PASSWORD:password}
+      retry:
+        initial-interval: 2000
+        max-interval: 10000
+        multiplier: 2
+        max-attempts: 10
 server:
   port: 8601
 eureka:
@@ -27,7 +38,6 @@ eureka:
 jasypt:
   encryptor:
     password: 123456
-    
 feign:
   compression:
     request:
@@ -35,12 +45,7 @@ feign:
       min-request-size: 2048
       mime-types: text/html,application/xml,application/json
     response:
-      enable: true 
-#security:
-#  user:
-#    name: admin
-#    password: ${MONITOR_SERVER_PASSWORD:admin}
-#    
+      enable: true
 management:
   security:
     enabled: false

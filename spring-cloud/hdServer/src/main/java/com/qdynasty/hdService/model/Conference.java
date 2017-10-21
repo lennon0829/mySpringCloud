@@ -10,7 +10,7 @@ package com.qdynasty.hdService.model;
 public class Conference {
 
 	private String id;
-	
+
 	private String billingCode;
 
 	private String name;
@@ -24,7 +24,7 @@ public class Conference {
 	private String beginTime;
 
 	private String endTime;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -88,4 +88,28 @@ public class Conference {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Conference [id=");
+		builder.append(id);
+		builder.append(", billingCode=");
+		builder.append(billingCode);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", hostCode=");
+		builder.append(hostCode);
+		builder.append(", guestCode=");
+		builder.append(guestCode);
+		builder.append(", bridgeName=");
+		builder.append(bridgeName);
+		builder.append(", beginTime=");
+		builder.append(beginTime);
+		builder.append(", endTime=");
+		builder.append(endTime);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }
