@@ -19,6 +19,7 @@
 		<module>rtmService</module>
 		<module>hdServer</module>
 		<module>monitorCenter</module>
+		<module>configCenter</module>
 	</modules>
 
 	<properties>

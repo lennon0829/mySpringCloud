@@ -59,7 +59,7 @@
 			<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 		</dependency>
 
-		<!--¼à¿ØÖÐÐÄ -->
+		<!--ç›‘æŽ§ä¸­å¿ƒ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
