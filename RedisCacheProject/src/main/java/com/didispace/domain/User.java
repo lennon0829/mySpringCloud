@@ -1,5 +1,7 @@
 package com.didispace.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,9 +14,14 @@ import javax.persistence.Id;
  * @blog http://blog.didispace.com
  */
 @Entity
-public class User {
+public class User implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue
     private Long id;
 
