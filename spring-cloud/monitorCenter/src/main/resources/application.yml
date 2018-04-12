@@ -13,6 +13,9 @@ spring:
       turbine:
         clusters: default
         location: http://127.0.0.1:${turbine.stream.port}
+  jackson:
+    serialization:
+      indent-output: true
 server:
   port: 8602
 eureka:
@@ -34,3 +37,6 @@ management:
 turbine:
   stream:
     port: 8603
+endpoints:
+  health:
+    sensitive: false

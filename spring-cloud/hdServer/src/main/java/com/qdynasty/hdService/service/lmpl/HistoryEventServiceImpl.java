@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.qdynasty.hdService.mapper.PartyMapper;
+import com.qdynasty.hdService.model.Party;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,9 @@ public class HistoryEventServiceImpl implements HistoryEventService {
 	private HistoryEventMapper historyEventMapper;
 
 	@Autowired
+	private PartyMapper PartyMapper;
+
+	@Autowired
 	private RtmServerClient rtmServerClient;
 
 	@Override
@@ -53,4 +58,20 @@ public class HistoryEventServiceImpl implements HistoryEventService {
 		return historyEventMapper.queryConferenceByPage(table, conference.getId(), queryPage);
 	}
 
+	@Override
+	public List<Party> loadConferencePartys(QueryPage queryPage, String billingCode) {
+		LOGGER.info("loadConferencePartys start.");
+		Conference conference = rtmServerClient.loadConferenceByBillingCode(billingCode);
+
+		if (conference == null || "-1".equals(conference.getId())) {
+			LOGGER.info("loadConferencePartys has error.");
+			return new ArrayList<>();
+		}
+
+		List<Party> partyList = PartyMapper.queryPartyList(conference.getId(), queryPage);
+
+		partyList.stream().forEach(Party::getPartyName);
+
+		return partyList;
+	}
 }
