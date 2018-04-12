@@ -14,8 +14,6 @@ spring:
           search-paths: spring-cloud/config-repo
     bus:
       enabled: true
-server:
-  port: 8750
 eureka:
   client:
     serviceUrl:
