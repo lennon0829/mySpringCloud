@@ -14,20 +14,6 @@ spring:
     port: 5672
     username: admin
     password: admin
-  cloud:
-    config:
-#      uri: http://config:8750
-      fail-fast: true
-      username: admin
-      password: admin
-      discovery:
-        enabled: true                                  # 表示使用服务发现的configserver配置，而不是自己配置的Config Server的uri，默认false
-        service-id: configCenter  # 指定Config Server在服务发现中的serviceId，默认是configserver
-      retry:
-        initial-interval: 2000
-        max-interval: 10000
-        multiplier: 2
-        max-attempts: 10
 server:
   port: 8601
 eureka:
@@ -35,7 +21,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://user:password@localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
 jasypt:
@@ -49,6 +35,3 @@ feign:
       mime-types: text/html,application/xml,application/json
     response:
       enable: true
-management:
-  security:
-    enabled: false
