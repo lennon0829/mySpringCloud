@@ -1,3 +1,5 @@
+server:
+  port: 8888
 spring:
   application:
     name: configCenter
@@ -20,3 +22,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+endpoints:
+  actuator:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+management:
+  security:
+    enabled: false

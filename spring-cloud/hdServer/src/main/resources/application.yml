@@ -14,6 +14,12 @@ spring:
     port: 5672
     username: admin
     password: admin
+  zipkin:
+    base-url: http://localhost:8770
+  sleuth:
+    enabled: true
+    sampler:
+      percentage: 1
 server:
   port: 8601
 eureka:
@@ -35,3 +41,12 @@ feign:
       mime-types: text/html,application/xml,application/json
     response:
       enable: true
+endpoints:
+  actuator:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+management:
+  security:
+    enabled: false

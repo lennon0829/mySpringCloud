@@ -5,8 +5,6 @@ spring:
     name: zuulGateway
 eureka:
   client:
-    healthcheck:
-      enabled: true
     serviceUrl:
       defaultZone: http://user:password@localhost:8761/eureka/
   instance:
@@ -16,3 +14,12 @@ zuul:
     hdservice: /hd/**
     rtmservice: /rtm/**
   ignored-services: '*'
+endpoints:
+  actuator:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+management:
+  security:
+    enabled: false

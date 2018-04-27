@@ -1,31 +1,22 @@
+server:
+  port: 8770
 spring:
   application:
-    name: rtmService
+    name: zipkinServer
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.68.80:3306/bridgemonitor?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false
+    url: jdbc:mysql://localhost:3306/zipkin?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false
     username: root
-    password: ENC(z/fKKSGy/h4JGnunOrV5wQ==)
+    password: root
     hikari:
       max-lifetime: 1765000
       maximum-pool-size: 15
-  zipkin:
-    base-url: http://localhost:8770
-  sleuth:
-    enabled: true
-    sampler:
-      percentage: 1
-server:
-  port: 8600
 eureka:
   client:
     serviceUrl:
       defaultZone: http://user:password@localhost:8761/eureka/
   instance:
     prefer-ip-address: true
-jasypt:
-  encryptor:
-    password: 123456
 endpoints:
   actuator:
     enabled: true
@@ -35,3 +26,5 @@ endpoints:
 management:
   security:
     enabled: false
+flyway:
+  locations: classpath:/db
